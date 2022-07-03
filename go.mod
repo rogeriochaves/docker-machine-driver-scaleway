@@ -25,7 +25,7 @@ require (
 	github.com/renstrom/fuzzysearch v1.1.0 // indirect
 	github.com/samalba/dockerclient v0.0.0-20160531175551-a30362618471 // indirect
 	github.com/scaleway/scaleway-cli v1.10.2-0.20190910170054-f0ff7c3359bb
-	github.com/sirupsen/logrus v1.4.2
+	github.com/Sirupsen/logrus v1.4.2
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	golang.org/x/crypto v0.0.0-20191219195013-becbf705a915 // indirect
 	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e // indirect
