@@ -21,7 +21,10 @@ type InstanceUtils struct {
 func NewInstanceUtils(d *Driver) (*InstanceUtils, error) {
 	i := &InstanceUtils{
 		driver: d,
+		serverID: "c0b06ec6-c2fb-4c4b-b762-5424375965ee",
 	}
+	zone := "nl-ams-1"
+	region := "nl-ams"
 
 	log.Debug("Try to migrate config")
 	_, err := scw.MigrateLegacyConfig()
@@ -31,11 +34,16 @@ func NewInstanceUtils(d *Driver) (*InstanceUtils, error) {
 
 	log.Debug("Creating Scaleway client")
 	config, err := scw.LoadConfig()
+	config.DefaultZone = &zone
+	config.DefaultRegion = &region
 	if err != nil {
 		return nil, fmt.Errorf("cannot load SDK config: %s", err)
 	}
 
 	profile, err := config.GetActiveProfile()
+	profile.DefaultZone = &zone
+	profile.DefaultRegion = &region
+	log.Debug("profile", profile)
 	if err != nil {
 		return nil, fmt.Errorf("cannot get SDK config active profile: %s", err)
 	}
